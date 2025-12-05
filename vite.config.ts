@@ -62,7 +62,7 @@ export default defineConfig({
   assetsInclude: ['**/*.pdf'], // THIS LINE IS ADDED FOR PDF SUPPORT
   build: {
     target: 'esnext',
-    outDir: 'build',
+    outDir: 'dist',
   },
   server: {
     port: 3000,
