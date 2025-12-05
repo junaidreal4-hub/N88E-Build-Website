@@ -16,15 +16,13 @@ import { ImageWithFallback } from "../figma/ImageWithFallback";
 import gutdachLogo from '../../assets/GUTDACH_logo.png';
 import gutwallLogo from '../../assets/GUTWALL_logo.png';
 import gutdachTileImage from '../../assets/GUTDACH_roofing_tile_grey1.png';
-import gutdachBrochure from '../../assets/GUTDACH_brochure.pdf';
-import gutwallBrochure from '../../assets/GUTWALL_brochure.pdf';
-
+import gutdachBrochure from '../../assets/GUTDACH_Brochure.pdf';
+import gutwallBrochure from '../../assets/GUTWALL_Brochure.pdf';
 
 interface ProductPageProps {
   productType: "gutdach" | "gutwall";
   onNavigate: (page: string) => void;
 }
-
 
 export function ProductPage({ productType, onNavigate }: ProductPageProps) {
   
@@ -148,15 +146,6 @@ export function ProductPage({ productType, onNavigate }: ProductPageProps) {
 
   const product = productData[productType];
 
-  const handleDownloadBrochure = () => {
-    const link = document.createElement('a');
-    link.href = product.brochure;
-    link.download = `${product.title}_Brochure.pdf`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
@@ -210,10 +199,15 @@ export function ProductPage({ productType, onNavigate }: ProductPageProps) {
                 <Button 
                   size="lg" 
                   variant="outline"
-                  onClick={handleDownloadBrochure}
+                  asChild
                 >
-                  <Download className="mr-2 h-5 w-5" />
-                  Download Brochure
+                  <a 
+                    href={product.brochure} 
+                    download={`${product.title}_Brochure.pdf`}
+                  >
+                    <Download className="mr-2 h-5 w-5" />
+                    Download Brochure
+                  </a>
                 </Button>
               </div>
             </div>
