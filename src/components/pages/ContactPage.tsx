@@ -390,7 +390,7 @@ export function ContactPage() {
                             placeholder="your.email@example.com"
                           />
                         </div>
-                        
+                      
                         <div className="space-y-2">
                           <Label htmlFor="personal-message">Message *</Label>
                           <Textarea
@@ -417,8 +417,6 @@ export function ContactPage() {
                 </CardContent>
               </Card>
             </div>
-
-
             {/* Map Section */}
             <div>
               <Card className="h-full">
@@ -429,20 +427,21 @@ export function ContactPage() {
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-                    <div className="text-center text-gray-600">
-                      <MapPin className="h-12 w-12 mx-auto mb-4" />
-                      <p>Interactive Map</p>
-                      <p className="text-sm">
-                        Kamrup, Guwahati<br />
-                        Assam, India, 781131
-                      </p>
-                    </div>
+                  <div className="w-full h-64 rounded-lg overflow-hidden mb-6">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114706.69830029927!2d91.64665197910155!3d26.14477479999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5f3b7eded2cf%3A0xc6d0d0d0d0d0d0d0!2sKamrup%20Metropolitan%2C%20Assam%20781131!5e0!3m2!1sen!2sin!4v1733602800000!5m2!1sen!2sin"                 
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen={false}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="N88E Build Pvt. Ltd. - Kamrup, Guwahati Location"
+                    ></iframe>
                   </div>
-                  
-                  <div className="mt-6 space-y-4">
+                  <div className="space-y-4">
                     <div>
-                      <h4 className="mb-2">Directions</h4>
+                      <h4 className="mb-2 font-semibold">Directions</h4>
                       <p className="text-gray-600 text-sm">
                         Located in Kamrup, Guwahati, Assam, easily accessible 
                         from the city center via major highways.
@@ -450,7 +449,7 @@ export function ContactPage() {
                     </div>
                     
                     <div>
-                      <h4 className="mb-2">Parking</h4>
+                      <h4 className="mb-2 font-semibold">Parking</h4>
                       <p className="text-gray-600 text-sm">
                         Free parking available on-site for all visitors and customers.
                       </p>
@@ -462,8 +461,6 @@ export function ContactPage() {
           </div>
         </div>
       </section>
-
-
       {/* CTA Section */}
       <section className="bg-primary text-white py-16">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
