@@ -18,7 +18,7 @@ import gutwallLogo from '../../assets/GUTWALL_logo.png';
 import gutdachTileImage from '../../assets/GUTDACH_roofing_tile_grey1.png';
 import gutdachBrochure from '../../assets/GUTDACH_Brochure.pdf';
 import gutwallBrochure from '../../assets/GUTWALL_Brochure.pdf';
-
+import gutwallImage from '../../asstes/GUTWALL_plain_sheet.png'
 interface ProductPageProps {
   productType: "gutdach" | "gutwall";
   onNavigate: (page: string) => void;
@@ -89,7 +89,7 @@ export function ProductPage({ productType, onNavigate }: ProductPageProps) {
       title: "GUTWALL",
       subtitle: "uPVC Plain Sheet for Interior Partitions",
       description: "Durable, climate-adaptive solution for interior partitions and modular walls. Moisture-proof, termite-resistant, and perfect for North East India's high humidity. Lightweight with zero maintenance required.",
-      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      image: gutwallImage,
       logo: gutwallLogo,
       brochure: gutwallBrochure,
       specifications: [
