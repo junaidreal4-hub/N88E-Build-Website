@@ -1,4 +1,4 @@
-import n88eLogo from '../assets/N88E_logo.png';
+import n88eLogo from '../assets/N88E_logo1.png';
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
