@@ -18,7 +18,7 @@ import gutwallLogo from '../../assets/GUTWALL_logo.png';
 import gutdachTileImage from '../../assets/GUTDACH_roofing_tile_grey1.png';
 import gutdachBrochure from '../../assets/GUTDACH_Brochure.pdf';
 import gutwallBrochure from '../../assets/GUTWALL_Brochure.pdf';
-import gutwallImage from '../../assets/GUTWALL_plain_sheet.png'
+import gutwallImage from '../../assets/GUTWALL_plain_sheet_wall.png'
 interface ProductPageProps {
   productType: "gutdach" | "gutwall";
   onNavigate: (page: string) => void;
