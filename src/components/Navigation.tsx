@@ -1,24 +1,36 @@
-import n88eLogo from '../assets/N88E_logo.png';
+import n88eLogo from "../assets/N88E_logo.png";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 
-interface NavigationProps {
-  currentPage: string;
-  onNavigate: (page: string) => void;
-}
+type NavItem = {
+  to: string;
+  label: string;
+  end?: boolean; // important for "/" so it doesn't stay active on every page
+};
 
-export function Navigation({ currentPage, onNavigate }: NavigationProps) {
+export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navItems = [
-    { id: "home", label: "Home" },
-    { id: "products", label: "Products" },
-    { id: "certificates", label: "Certificates" },
-    { id: "about", label: "About Us" },
-    { id: "founder", label: "Founder" },
-    { id: "contact", label: "Contact" },
+  const navItems: NavItem[] = [
+    { to: "/", label: "Home", end: true },
+    { to: "/products", label: "Products" },
+    { to: "/certificates", label: "Certificates" },
+    { to: "/about", label: "About Us" },
+    { to: "/founder", label: "Founder" },
+    { to: "/contact", label: "Contact" },
   ];
+
+  const linkBase =
+    "px-3 py-2 rounded-md transition-colors";
+
+  const linkClassName = ({ isActive }: { isActive: boolean }) =>
+    `${linkBase} ${
+      isActive
+        ? "bg-primary text-white"
+        : "text-gray-600 hover:text-primary hover:bg-gray-50"
+    }`;
 
   return (
     <nav className="bg-white shadow-sm border-b">
@@ -26,33 +38,32 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
         <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <button
-              onClick={() => onNavigate("home")}
+            <NavLink
+              to="/"
+              end
               className="flex flex-col items-start hover:opacity-80 transition-opacity"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
-              <img 
-                src={n88eLogo} 
-                alt="N88E Build Pvt. Ltd. - Climate-Adaptive Roofing for Northeast India" 
+              <img
+                src={n88eLogo}
+                alt="N88E Build Pvt. Ltd. - Climate-Adaptive Roofing for Northeast India"
                 className="h-20 w-auto"
               />
-            </button>
+            </NavLink>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => onNavigate(item.id)}
-                  className={`px-3 py-2 rounded-md transition-colors ${
-                    currentPage === item.id
-                      ? "bg-primary text-white"
-                      : "text-gray-600 hover:text-primary hover:bg-gray-50"
-                  }`}
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  end={item.end}
+                  className={linkClassName}
                 >
                   {item.label}
-                </button>
+                </NavLink>
               ))}
             </div>
           </div>
@@ -62,9 +73,14 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => setIsMobileMenuOpen((v) => !v)}
+              aria-label="Toggle navigation"
             >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </Button>
           </div>
         </div>
@@ -74,20 +90,21 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
               {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => {
-                    onNavigate(item.id);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className={`block px-3 py-2 rounded-md w-full text-left transition-colors ${
-                    currentPage === item.id
-                      ? "bg-primary text-white"
-                      : "text-gray-600 hover:text-primary hover:bg-gray-50"
-                  }`}
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  end={item.end}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `block px-3 py-2 rounded-md w-full text-left transition-colors ${
+                      isActive
+                        ? "bg-primary text-white"
+                        : "text-gray-600 hover:text-primary hover:bg-gray-50"
+                    }`
+                  }
                 >
                   {item.label}
-                </button>
+                </NavLink>
               ))}
             </div>
           </div>

@@ -1,26 +1,53 @@
-import heroimage from '../../assets/Building_GUTDACH.png';
-import gutdachTileImage from '../../assets/GUTDACH_roofing_tile_grey1.png';
+import heroimage from "../../assets/Building_GUTDACH.png";
+import gutdachTileImage from "../../assets/GUTDACH_roofing_tile_grey1.png";
+
 import { Button } from "../ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
 import { Badge } from "../ui/badge";
-import { Shield, Thermometer, Volume2, Calendar, ArrowRight, Award, Building2, CheckCircle2, MapPin, Phone, Mail } from "lucide-react";
+import {
+  Shield,
+  Thermometer,
+  Volume2,
+  Calendar,
+  ArrowRight,
+  Award,
+  Building2,
+  CheckCircle2,
+  MapPin,
+  Phone,
+  Mail,
+} from "lucide-react";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
 import { RoofingMaterialsRadarChart } from "../RadarChart";
-import gutdachLogo from '../../assets/GUTDACH_logo.png';
-import gutwallLogo from '../../assets/GUTWALL_logo.png';
-import peterLogo from '../../assets/PETER_logo.png';
-import heroRoofImage from '../../assets/Building_GUTDACH.png';
-import gutwallslideImage from '../../assets/GUTWALL_plainsheet_catalog.png';
-import gutdach01Image from '../../assets/GUTDACH_roofing_tile_grey_roof.png';
-import peterImage from '../../assets/PETER.png';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
+
+import gutdachLogo from "../../assets/GUTDACH_logo.png";
+import gutwallLogo from "../../assets/GUTWALL_logo.png";
+import peterLogo from "../../assets/PETER_logo.png";
+
+import heroRoofImage from "../../assets/Building_GUTDACH.png";
+import gutwallslideImage from "../../assets/GUTWALL_plainsheet_catalog.png";
+import gutdach01Image from "../../assets/GUTDACH_roofing_tile_grey_roof.png";
+import peterImage from "../../assets/PETER.png";
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../ui/carousel";
+
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
-interface HomePageProps {
-  onNavigate: (page: string) => void;
-}
-
-export function HomePage({ onNavigate }: HomePageProps) {
+export function HomePage() {
+  const navigate = useNavigate(); // programmatic navigation [web:50]
   const carouselApiRef = useRef<any>(null);
 
   // Auto-play carousel effect
@@ -29,7 +56,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       if (carouselApiRef.current) {
         carouselApiRef.current.scrollNext();
       }
-    }, 3000); // Change slide every 3 seconds
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -38,30 +65,30 @@ export function HomePage({ onNavigate }: HomePageProps) {
     {
       icon: Shield,
       title: "30+ Year Lifespan",
-      description: "3x longer than GI sheets and built to last generations"
+      description: "3x longer than GI sheets and built to last generations",
     },
     {
       icon: Thermometer,
       title: "5-7°C Cooler",
-      description: "Thermal insulation keeps your interiors comfortable"
+      description: "Thermal insulation keeps your interiors comfortable",
     },
     {
       icon: Volume2,
       title: "Silent & Peaceful",
-      description: "Sound-absorbing technology eliminates rain noise"
+      description: "Sound-absorbing technology eliminates rain noise",
     },
     {
       icon: Calendar,
       title: "Zero Maintenance",
-      description: "No repainting, no rust, no repairs ever needed"
-    }
+      description: "No repainting, no rust, no repairs ever needed",
+    },
   ];
 
   const certificates = [
     { title: "ISO 9001:2015", subtitle: "Quality Management" },
     { title: "ISO 14001:2015", subtitle: "Environmental" },
     { title: "ASTM E84 Class A", subtitle: "Fire Resistance" },
-    { title: "ASTM G154", subtitle: "UV Resistance" }
+    { title: "ASTM G154", subtitle: "UV Resistance" },
   ];
 
   return (
@@ -75,23 +102,27 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 Climate-Adaptive Roofing for Northeast India
               </h1>
               <p className="text-xl text-green-100 mb-8">
-                N88E Build Pvt. Ltd. delivers ASA uPVC roofing solutions engineered for India's extreme climate. 
-                30+ year lifespan, rust-proof, 5-7°C cooler and zero maintenance the roofing revolution India deserves.
+                N88E Build Pvt. Ltd. delivers ASA uPVC roofing solutions
+                engineered for India's extreme climate. 30+ year lifespan,
+                rust-proof, 5-7°C cooler and zero maintenance the roofing
+                revolution India deserves.
               </p>
+
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   variant="secondary"
-                  onClick={() => onNavigate("products")}
+                  onClick={() => navigate("/products")}
                   className="text-lg"
                 >
                   Explore Products
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button 
-                  size="lg" 
+
+                <Button
+                  size="lg"
                   variant="outline"
-                  onClick={() => onNavigate("contact")}
+                  onClick={() => navigate("/contact")}
                   className="text-lg border-white text-[rgb(17,43,60)] hover:bg-white hover:text-primary"
                 >
                   Get a Quote
@@ -99,6 +130,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 </Button>
               </div>
             </div>
+
             <div className="relative">
               <ImageWithFallback
                 src={heroRoofImage}
@@ -116,17 +148,16 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <div className="text-center mb-12">
             <h2 className="text-3xl mb-4">Our Product Range</h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Discover our range of high-quality uPVC solutions for roofing and interior applications, designed for Northeast India's unique climate.
+              Discover our range of high-quality uPVC solutions for roofing and
+              interior applications, designed for Northeast India's unique
+              climate.
             </p>
           </div>
-          
+
           {/* Product Carousel */}
           <div className="max-w-4xl mx-auto mb-8">
             <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
+              opts={{ align: "start", loop: true }}
               setApi={(api) => {
                 carouselApiRef.current = api;
               }}
@@ -145,19 +176,26 @@ export function HomePage({ onNavigate }: HomePageProps) {
                             className="w-full h-80 object-cover rounded-lg"
                           />
                         </div>
+
                         <div className="flex items-center justify-center mb-4">
-                          <img 
-                            src={gutdachLogo} 
-                            alt="GUTDACH" 
+                          <img
+                            src={gutdachLogo}
+                            alt="GUTDACH"
                             className="h-12 w-auto"
                           />
                         </div>
-                        <h3 className="text-2xl mb-4 text-primary">ASA uPVC Roofing Solution</h3>
+
+                        <h3 className="text-2xl mb-4 text-primary">
+                          ASA uPVC Roofing Solution
+                        </h3>
                         <p className="text-gray-600 mb-6 max-w-md mx-auto">
-                          Available in flat sheets and tile profiles. Perfect for residential, commercial, and industrial applications.
+                          Available in flat sheets and tile profiles. Perfect
+                          for residential, commercial, and industrial
+                          applications.
                         </p>
-                        <Button 
-                          onClick={() => onNavigate("gutdach")}
+
+                        <Button
+                          onClick={() => navigate("/gutdach")}
                           size="lg"
                           className="w-full max-w-xs mx-auto"
                         >
@@ -181,19 +219,26 @@ export function HomePage({ onNavigate }: HomePageProps) {
                             className="w-full h-80 object-cover rounded-lg"
                           />
                         </div>
+
                         <div className="flex items-center justify-center mb-4">
-                          <img 
-                            src={gutwallLogo} 
-                            alt="GUTWALL" 
+                          <img
+                            src={gutwallLogo}
+                            alt="GUTWALL"
                             className="h-12 w-auto"
                           />
                         </div>
-                        <h3 className="text-2xl mb-4 text-primary">uPVC Interior Partitions</h3>
+
+                        <h3 className="text-2xl mb-4 text-primary">
+                          uPVC Interior Partitions
+                        </h3>
                         <p className="text-gray-600 mb-6 max-w-md mx-auto">
-                          Moisture-proof, termite-resistant interior partition sheets. Perfect for modern homes and offices in high-humidity regions.
+                          Moisture-proof, termite-resistant interior partition
+                          sheets. Perfect for modern homes and offices in
+                          high-humidity regions.
                         </p>
-                        <Button 
-                          onClick={() => onNavigate("gutwall")}
+
+                        <Button
+                          onClick={() => navigate("/gutwall")}
                           size="lg"
                           className="w-full max-w-xs mx-auto"
                         >
@@ -220,19 +265,26 @@ export function HomePage({ onNavigate }: HomePageProps) {
                             Coming Soon
                           </Badge>
                         </div>
+
                         <div className="flex items-center justify-center mb-4">
-                          <img 
-                            src={peterLogo} 
-                            alt="P.E.T.E.R." 
+                          <img
+                            src={peterLogo}
+                            alt="P.E.T.E.R."
                             className="h-12 w-auto"
                           />
                         </div>
-                        <h3 className="text-2xl mb-4 text-primary">Military & Emergency Roofing</h3>
+
+                        <h3 className="text-2xl mb-4 text-primary">
+                          Military & Emergency Roofing
+                        </h3>
                         <p className="text-gray-600 mb-6 max-w-md mx-auto">
-                          Rapid deployment modular roofing system for military operations and disaster relief. Revolutionary design coming soon.
+                          Rapid deployment modular roofing system for military
+                          operations and disaster relief. Revolutionary design
+                          coming soon.
                         </p>
-                        <Button 
-                          onClick={() => onNavigate("peter")}
+
+                        <Button
+                          onClick={() => navigate("/peter")}
                           size="lg"
                           variant="outline"
                           className="w-full max-w-xs mx-auto"
@@ -245,15 +297,16 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   </Card>
                 </CarouselItem>
               </CarouselContent>
+
               <CarouselPrevious />
               <CarouselNext />
             </Carousel>
           </div>
 
           <div className="text-center">
-            <Button 
-              variant="outline" 
-              onClick={() => onNavigate("products")}
+            <Button
+              variant="outline"
+              onClick={() => navigate("/products")}
               className="border-primary text-primary hover:bg-primary hover:text-white"
             >
               Compare All Products
@@ -269,11 +322,12 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <div className="text-center mb-12">
             <h2 className="text-3xl mb-4">Why Choose GUTDACH?</h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Unlike traditional GI sheets that rust, trap heat, and require constant maintenance, 
-              GUTDACH ASA uPVC roofing is engineered to outperform and outlast.
+              Unlike traditional GI sheets that rust, trap heat, and require
+              constant maintenance, GUTDACH ASA uPVC roofing is engineered to
+              outperform and outlast.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <div key={index} className="text-center">
@@ -295,40 +349,55 @@ export function HomePage({ onNavigate }: HomePageProps) {
             <div>
               <Badge className="mb-4">Founded July 2025</Badge>
               <h2 className="text-primary mb-6">About N88E Build Pvt. Ltd.</h2>
+
               <p className="text-gray-700 mb-4">
-                Based in Kamrup, Guwahati, Assam, N88E Build Pvt. Ltd. is revolutionizing the Indian roofing industry 
-                with cutting-edge ASA uPVC technology. We're committed to solving India's traditional roofing 
-                problems with innovative, sustainable solutions.
+                Based in Kamrup, Guwahati, Assam, N88E Build Pvt. Ltd. is
+                revolutionizing the Indian roofing industry with cutting-edge
+                ASA uPVC technology. We're committed to solving India's
+                traditional roofing problems with innovative, sustainable
+                solutions.
               </p>
+
               <p className="text-gray-700 mb-6">
-                Our GUTDACH products are engineered specifically for India's extreme climate conditions, 
-                offering unmatched durability, thermal efficiency, and zero maintenance requirements.
+                Our GUTDACH products are engineered specifically for India's
+                extreme climate conditions, offering unmatched durability,
+                thermal efficiency, and zero maintenance requirements.
               </p>
+
               <div className="flex items-center gap-2 text-primary mb-6">
                 <MapPin className="h-5 w-5" />
                 <span>Proudly made in Northeast India</span>
               </div>
-              <Button onClick={() => onNavigate("about")} variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+
+              <Button
+                onClick={() => navigate("/about")}
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary hover:text-white"
+              >
                 Learn More About Us
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
+
             <div className="grid grid-cols-2 gap-4">
               <Card className="text-center p-6">
                 <Building2 className="h-10 w-10 text-primary mx-auto mb-3" />
                 <h3 className="mb-2">30+ Years</h3>
                 <p className="text-gray-600 text-sm">Product Lifespan</p>
               </Card>
+
               <Card className="text-center p-6">
                 <Shield className="h-10 w-10 text-primary mx-auto mb-3" />
                 <h3 className="mb-2">Rust-Proof</h3>
                 <p className="text-gray-600 text-sm">Forever Guaranteed</p>
               </Card>
+
               <Card className="text-center p-6">
                 <Thermometer className="h-10 w-10 text-primary mx-auto mb-3" />
                 <h3 className="mb-2">5-7°C</h3>
                 <p className="text-gray-600 text-sm">Cooler Interiors</p>
               </Card>
+
               <Card className="text-center p-6">
                 <Calendar className="h-10 w-10 text-primary mx-auto mb-3" />
                 <h3 className="mb-2">Zero</h3>
@@ -345,13 +414,17 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <div className="text-center mb-12">
             <h2 className="text-primary mb-4">Certifications & Standards</h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Our products meet the highest international quality, safety, and performance standards
+              Our products meet the highest international quality, safety, and
+              performance standards
             </p>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
             {certificates.map((cert, idx) => (
-              <Card key={idx} className="text-center p-6 hover:shadow-lg transition-shadow">
+              <Card
+                key={idx}
+                className="text-center p-6 hover:shadow-lg transition-shadow"
+              >
                 <Award className="h-10 w-10 text-primary mx-auto mb-3" />
                 <h3 className="mb-1">{cert.title}</h3>
                 <p className="text-gray-600 text-sm">{cert.subtitle}</p>
@@ -363,7 +436,12 @@ export function HomePage({ onNavigate }: HomePageProps) {
             <p className="text-gray-600 mb-4">
               View all 12 certifications and quality standards
             </p>
-            <Button onClick={() => onNavigate("certificates")} variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+
+            <Button
+              onClick={() => navigate("/certificates")}
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary hover:text-white"
+            >
               View All Certificates
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -384,7 +462,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <div className="text-center mb-12">
             <h2 className="text-primary mb-4">Get In Touch</h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Have questions or ready to transform your roofing? We're here to help.
+              Have questions or ready to transform your roofing? We're here to
+              help.
             </p>
           </div>
 
@@ -392,13 +471,19 @@ export function HomePage({ onNavigate }: HomePageProps) {
             <Card className="text-center p-6 hover:shadow-lg transition-shadow">
               <MapPin className="h-10 w-10 text-primary mx-auto mb-4" />
               <h3 className="mb-2">Visit Us</h3>
-              <p className="text-gray-600">Kamrup, Guwahati<br />Assam, India 781131</p>
+              <p className="text-gray-600">
+                Kamrup, Guwahati
+                <br />
+                Assam, India 781131
+              </p>
             </Card>
+
             <Card className="text-center p-6 hover:shadow-lg transition-shadow">
               <Phone className="h-10 w-10 text-primary mx-auto mb-4" />
               <h3 className="mb-2">Call Us</h3>
               <p className="text-gray-600">+91 88370 93861</p>
             </Card>
+
             <Card className="text-center p-6 hover:shadow-lg transition-shadow">
               <Mail className="h-10 w-10 text-primary mx-auto mb-4" />
               <h3 className="mb-2">Email Us</h3>
@@ -407,7 +492,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
           </div>
 
           <div className="text-center">
-            <Button onClick={() => onNavigate("contact")} size="lg" className="shadow-lg">
+            <Button onClick={() => navigate("/contact")} size="lg" className="shadow-lg">
               Contact Us Now
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -421,13 +506,15 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <h2 className="text-3xl mb-4">
             Ready to Experience Roofing That Lasts 30+ Years?
           </h2>
+
           <p className="text-xl text-orange-100 mb-8">
             Join thousands of satisfied customers across India. Get your personalized quote today.
           </p>
-          <Button 
-            size="lg" 
+
+          <Button
+            size="lg"
             variant="outline"
-            onClick={() => onNavigate("contact")}
+            onClick={() => navigate("/contact")}
             className="text-lg border-white text-[rgba(45,106,79,1)] hover:bg-white hover:text-secondary"
           >
             Request a Quote
