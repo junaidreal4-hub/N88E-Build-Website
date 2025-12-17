@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyp721paeSmjJ1pSevbclOndHvBtx2PsBSqHZXTbjMVspif1R9VQO6gdSHeEDOIWKlrlg/exec'; // Paste your URL
+const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL; 
 
 export const submitToGoogleSheets = async (data: any) => {
   try {
     const response = await axios.post(GOOGLE_SCRIPT_URL, data, {
       headers: {
-        'Content-Type': 'text/plain', // Important for CORS
+        'Content-Type': 'text/plain', 
       }
     });
     return { success: true, data: response.data };

@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from "react-helmet-async";
 
 interface SEOProps {
   title?: string;
@@ -7,6 +7,7 @@ interface SEOProps {
   image?: string;
   url?: string;
   type?: string;
+  robots?: string; // NEW (e.g., "index,follow" or "noindex,follow")
 }
 
 export const SEO: React.FC<SEOProps> = ({
@@ -15,18 +16,24 @@ export const SEO: React.FC<SEOProps> = ({
   keywords = "roofing sheets, ASA uPVC roofing, roofing sheets Assam, GI sheet alternative, Northeast India roofing, N88E Build, GUTDACH",
   image = "https://n88ebuild.com/og-image.jpg",
   url = "https://n88ebuild.com",
-  type = "website"
+  type = "website",
+  robots = "index,follow",
 }) => {
-  const fullTitle = title.includes('N88E Build') ? title : `${title} | N88E Build`;
-  
+  const fullTitle = title.includes("N88E Build") ? title : `${title} | N88E Build`;
+
   return (
     <Helmet>
       {/* Primary Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="title" content={fullTitle} />
       <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
-      
+
+      {/* Robots */}
+      <meta name="robots" content={robots} />
+
+      {/* Keywords (Note: Google ignores meta keywords for ranking, but keeping it won’t break anything) */}
+      <meta name="keywords" content={keywords} /> {/* Google ignores this for ranking [web:34] */}
+
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
       <meta property="og:url" content={url} />
@@ -37,14 +44,14 @@ export const SEO: React.FC<SEOProps> = ({
       <meta property="og:image:height" content="630" />
       <meta property="og:locale" content="en_IN" />
       <meta property="og:site_name" content="N88E Build Pvt. Ltd." />
-      
+
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={url} />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
-      
+
       {/* Canonical URL */}
       <link rel="canonical" href={url} />
     </Helmet>
