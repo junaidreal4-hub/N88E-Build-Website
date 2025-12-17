@@ -1,45 +1,59 @@
-import image_ec42eb8d61cff3dcf971881c4d373cb2ae3199ae from '../../assets/GUTDACH_grey_NE.png'
-import image_a051e033dbba6dfa831709ee5dd33fc9cbef575f from '../../assets/Julius.png';
+import image_ec42eb8d61cff3dcf971881c4d373cb2ae3199ae from "../../assets/GUTDACH_grey_NE.png";
+import image_a051e033dbba6dfa831709ee5dd33fc9cbef575f from "../../assets/Julius.png";
 import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { GraduationCap, Lightbulb, Factory, Target, MapPin } from "lucide-react";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
-import gutdachLogo from '../../assets/GUTDACH_logo.png';
+import gutdachLogo from "../../assets/GUTDACH_logo.png";
+
+// SEO
+import { SEO } from "../SEO";
 
 export function FounderPage() {
   const journey = [
     {
       icon: GraduationCap,
       title: "Academic Excellence",
-      description: "Pursued MBA in Germany with focus on sustainable business solutions"
+      description: "Pursued MBA in Germany with focus on sustainable business solutions",
     },
     {
       icon: Lightbulb,
       title: "Research & Innovation",
-      description: "Thesis on affordable roofing solutions approved, focusing on climate-smart materials"
+      description:
+        "Thesis on affordable roofing solutions approved, focusing on climate-smart materials",
     },
     {
       icon: Target,
       title: "Vision for Northeast India",
-      description: "Identified critical gap in Northeast India's roofing market during extreme weather conditions"
+      description:
+        "Identified critical gap in Northeast India's roofing market during extreme weather conditions",
     },
     {
       icon: Factory,
       title: "N88E Build Pvt. Ltd. Founded",
-      description: "July 2025 - Turned academic vision into reality in Guwahati, Assam"
-    }
+      description: "July 2025 - Turned academic vision into reality in Guwahati, Assam",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title="Julius Longjam | Founder & CEO, N88E Build Pvt. Ltd."
+        description="Meet Julius Longjam, Founder & CEO of N88E Build Pvt. Ltd. Learn how his MBA research in Germany led to climate-adaptive ASA uPVC roofing solutions like GUTDACH for Northeast India."
+        keywords="Julius Longjam, N88E Build founder, Founder and CEO N88E Build, GUTDACH founder story, ASA uPVC roofing innovation, roofing solutions Northeast India, Guwahati Assam"
+        url="https://n88ebuild.com/founder"
+        image="https://n88ebuild.com/og-image.jpg"
+        type="profile"
+      />
+
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-secondary text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <Badge variant="secondary" className="mb-4 bg-white text-primary">About the Founder</Badge>
-            <h1 className="text-4xl lg:text-5xl mb-6">
-              Julius Longjam
-            </h1>
+            <Badge variant="secondary" className="mb-4 bg-white text-primary">
+              About the Founder
+            </Badge>
+            <h1 className="text-4xl lg:text-5xl mb-6">Julius Longjam</h1>
             <p className="text-xl text-green-100 max-w-3xl mx-auto mb-4">
               Founder & CEO, N88E Build Pvt. Ltd.
             </p>
@@ -58,27 +72,34 @@ export function FounderPage() {
               <h2 className="text-3xl text-primary mb-6">From Research to Revolution</h2>
               <div className="space-y-6 text-gray-700">
                 <p className="text-lg">
-                  <strong>Julius Longjam</strong>, the founder of N88E Build Pvt. Ltd., had his thesis on 
-                  <strong> affordable roofing solutions</strong> approved by his university in Germany 
-                  while pursuing his MBA.
+                  <strong>Julius Longjam</strong>, the founder of N88E Build Pvt. Ltd., had
+                  his thesis on <strong> affordable roofing solutions</strong> approved by
+                  his university in Germany while pursuing his MBA.
                 </p>
                 <p className="text-lg">
-                  His research focused on developing <strong>cost-effective, durable, and climate-smart roofing systems</strong> for 
-                  regions like Northeast India, where conventional materials such as GI sheets struggle to withstand heavy monsoons, 
-                  humidity, and extreme temperature shifts.
+                  His research focused on developing{" "}
+                  <strong>cost-effective, durable, and climate-smart roofing systems</strong>{" "}
+                  for regions like Northeast India, where conventional materials such as GI
+                  sheets struggle to withstand heavy monsoons, humidity, and extreme
+                  temperature shifts.
                 </p>
                 <p className="text-lg">
-                  During his studies, Julius identified a critical challenge millions of households across developing nations 
-                  rely on roofing materials unsuited to their climate, resulting in heat stress, frequent leaks, and costly maintenance.
+                  During his studies, Julius identified a critical challenge millions of
+                  households across developing nations rely on roofing materials unsuited
+                  to their climate, resulting in heat stress, frequent leaks, and costly
+                  maintenance.
                 </p>
                 <p className="text-lg">
-                  Motivated to create change, Julius transformed his academic vision into reality by founding 
-                  <strong> N88E Build Pvt. Ltd. in July 2025</strong>, establishing its head office in 
-                  <strong> Guwahati, Assam</strong>, and building a robust distribution network across Northeast India to deliver 
-                  next-generation ASA uPVC roofing under the brand <strong>"GUTDACH."</strong>
+                  Motivated to create change, Julius transformed his academic vision into
+                  reality by founding <strong> N88E Build Pvt. Ltd. in July 2025</strong>,
+                  establishing its head office in <strong> Guwahati, Assam</strong>, and
+                  building a robust distribution network across Northeast India to deliver
+                  next-generation ASA uPVC roofing under the brand{" "}
+                  <strong>"GUTDACH."</strong>
                 </p>
               </div>
             </div>
+
             <div className="order-1 lg:order-2">
               <ImageWithFallback
                 src={image_a051e033dbba6dfa831709ee5dd33fc9cbef575f}
@@ -96,11 +117,12 @@ export function FounderPage() {
             <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-l-4 border-primary">
               <CardContent className="p-8">
                 <p className="text-2xl text-gray-700 italic mb-4 text-center">
-                  “My mission is simple – to provide better, longer-lasting, and affordable roofing solutions that truly make sense for the people and climate of Northeast India.”
-"
+                  “My mission is simple – to provide better, longer-lasting, and
+                  affordable roofing solutions that truly make sense for the people and
+                  climate of Northeast India.”
                 </p>
                 <p className="text-center text-primary text-lg">
-                  <strong>– — Julius Longjam, Founder & CEO, N88E Build Pvt. Ltd.</strong>
+                  <strong>– Julius Longjam, Founder & CEO, N88E Build Pvt. Ltd.</strong>
                 </p>
               </CardContent>
             </Card>
@@ -140,7 +162,8 @@ export function FounderPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl mb-4">Academic Background & Research</h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              Julius's groundbreaking research in Germany laid the foundation for N88E Build Pvt. Ltd.
+              Julius's groundbreaking research in Germany laid the foundation for N88E Build
+              Pvt. Ltd.
             </p>
           </div>
 
@@ -154,7 +177,8 @@ export function FounderPage() {
                   <div>
                     <h3 className="text-xl text-primary mb-2">MBA - Germany</h3>
                     <p className="text-gray-600">
-                      Specialized in sustainable business models and innovative solutions for developing markets
+                      Specialized in sustainable business models and innovative solutions for
+                      developing markets
                     </p>
                   </div>
                 </div>
@@ -176,7 +200,8 @@ export function FounderPage() {
                   <div>
                     <h3 className="text-xl text-primary mb-2">Research Focus</h3>
                     <p className="text-gray-600">
-                      Identifying the failures of traditional roofing materials in extreme weather conditions
+                      Identifying the failures of traditional roofing materials in extreme
+                      weather conditions
                     </p>
                   </div>
                 </div>
@@ -208,12 +233,17 @@ export function FounderPage() {
               <h2 className="text-3xl mb-6">Why Northeast India?Why Now?</h2>
               <div className="space-y-4 text-green-100 text-lg">
                 <p>
-                  Julius recognized that Northeast India, with its diverse and challenging terrain from humid valleys and heavy monsoon belts to hilly and high-altitude regions needed roofing solutions built for resilience and longevity. Homes and small industries here face:
+                  Julius recognized that Northeast India, with its diverse and challenging
+                  terrain from humid valleys and heavy monsoon belts to hilly and high-altitude
+                  regions needed roofing solutions built for resilience and longevity. Homes
+                  and small industries here face:
                 </p>
                 <ul className="space-y-3 ml-6">
                   <li className="flex items-start gap-3">
                     <span className="text-2xl">•</span>
-                    <span>Relentless rainfall and high humidity that weaken traditional materials</span>
+                    <span>
+                      Relentless rainfall and high humidity that weaken traditional materials
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-2xl">•</span>
@@ -225,12 +255,19 @@ export function FounderPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-2xl">•</span>
-                    <span>Difficult logistics and high replacement costs due to limited infrastructure</span>
+                    <span>
+                      Difficult logistics and high replacement costs due to limited
+                      infrastructure
+                    </span>
                   </li>
                 </ul>
                 <p>
-                  His research showed that traditional GI sheets and fiber cement roofs often corrode, leak, or break within a few years, leaving thousands of households vulnerable.
-This insight led him to develop GUTDACH – ASA uPVC roofing, engineered specifically for the demanding climate of Northeast India delivering durability, zero maintenance, and long-term affordability for every family and builder in the region.
+                  His research showed that traditional GI sheets and fiber cement roofs often
+                  corrode, leak, or break within a few years, leaving thousands of households
+                  vulnerable. This insight led him to develop GUTDACH – ASA uPVC roofing,
+                  engineered specifically for the demanding climate of Northeast India
+                  delivering durability, zero maintenance, and long-term affordability for
+                  every family and builder in the region.
                 </p>
               </div>
             </div>
@@ -264,8 +301,10 @@ This insight led him to develop GUTDACH – ASA uPVC roofing, engineered specifi
                         <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                         <div>
                           <p className="text-gray-700">
-                            <strong>Location:</strong><br />
-                            Kamrup, Guwahati<br />
+                            <strong>Location:</strong>
+                            <br />
+                            Kamrup, Guwahati
+                            <br />
                             Assam, India - 781131
                           </p>
                         </div>
@@ -281,11 +320,7 @@ This insight led him to develop GUTDACH – ASA uPVC roofing, engineered specifi
                     </div>
                   </div>
                   <div>
-                    <img 
-                      src={gutdachLogo} 
-                      alt="GUTDACH" 
-                      className="h-32 w-auto mx-auto mb-6"
-                    />
+                    <img src={gutdachLogo} alt="GUTDACH" className="h-32 w-auto mx-auto mb-6" />
                     <p className="text-center text-gray-600">
                       GUTDACH - The result of Julius's vision to perfect roofing for India
                     </p>
@@ -300,20 +335,18 @@ This insight led him to develop GUTDACH – ASA uPVC roofing, engineered specifi
       {/* Closing Statement */}
       <section className="py-16 bg-gradient-to-br from-green-50 to-blue-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl mb-6 text-primary">
-            A Vision Realized
-          </h2>
+          <h2 className="text-3xl mb-6 text-primary">A Vision Realized</h2>
           <p className="text-xl text-gray-700 mb-6">
-            From an MBA thesis in Germany to revolutionizing roofing in India, 
-            Julius Longjam's journey exemplifies how academic research can transform 
-            into real-world solutions that improve millions of lives.
+            From an MBA thesis in Germany to revolutionizing roofing in India, Julius Longjam's
+            journey exemplifies how academic research can transform into real-world solutions
+            that improve millions of lives.
           </p>
           <div className="p-6 bg-white rounded-lg shadow-lg border-l-4 border-primary">
             <p className="text-lg text-gray-700">
-              Today, N88E Build Pvt. Ltd. stands as a testament to the power of combining 
-              <strong> academic rigor</strong>, <strong>practical innovation</strong>, and 
-              <strong> deep understanding of local needs</strong> to create products that 
-              truly make a difference.
+              Today, N88E Build Pvt. Ltd. stands as a testament to the power of combining
+              <strong> academic rigor</strong>, <strong>practical innovation</strong>, and
+              <strong> deep understanding of local needs</strong> to create products that truly
+              make a difference.
             </p>
           </div>
         </div>

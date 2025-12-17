@@ -9,8 +9,11 @@ import peterLogo from "../../assets/PETER_logo.png";
 
 import { useNavigate } from "react-router-dom";
 
+// SEO
+import { SEO } from "../SEO";
+
 export function ProductsLandingPage() {
-  const navigate = useNavigate(); // navigate between routes [web:50]
+  const navigate = useNavigate(); // navigate between routes
 
   const products = [
     {
@@ -43,6 +46,15 @@ export function ProductsLandingPage() {
 
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
+      <SEO
+        title="Our Products - GUTDACH & GUTWALL uPVC Solutions"
+        description="Explore N88E Build's complete range of ASA uPVC roofing and interior solutions: GUTDACH roofing sheets, GUTWALL partition sheets, and P.E.T.E.R. tactical roofing. Engineered for extreme climates."
+        keywords="GUTDACH roofing, GUTWALL partitions, ASA uPVC products, roofing solutions Assam, interior partition sheets, tactical roofing"
+        url="https://n88ebuild.com/products"
+        image="https://n88ebuild.com/og-image.jpg"
+        type="website"
+      />
+
       {/* Hero Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">

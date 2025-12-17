@@ -10,6 +10,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { MapPin, Phone, Mail, Clock, CheckCircle, AlertCircle, Building2, User } from "lucide-react";
 import { submitToGoogleSheets } from "../../utils/formSubmit";
 
+// SEO
+import { SEO } from "../SEO";
 
 export function ContactPage() {
   const [businessFormData, setBusinessFormData] = useState({
@@ -19,36 +21,34 @@ export function ContactPage() {
     phone: "",
     industry: "",
     projectSize: "",
-    message: ""
+    message: "",
   });
-  
+
   const [personalFormData, setPersonalFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    message: ""
+    message: "",
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
 
-
   const handleBusinessInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setBusinessFormData(prev => ({
+    setBusinessFormData((prev) => ({
       ...prev,
-      [name]: value
-    }));
-  };
-  
-  const handlePersonalInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setPersonalFormData(prev => ({
-      ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
+  const handlePersonalInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setPersonalFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const handleBusinessSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -57,32 +57,32 @@ export function ContactPage() {
 
     try {
       const result = await submitToGoogleSheets({
-        type: 'Business',
-        ...businessFormData
+        type: "Business",
+        ...businessFormData,
       });
-      
+
       if (result.success) {
         setSubmitStatus("success");
-        setBusinessFormData({ 
-          companyName: "", 
-          contactPerson: "", 
-          email: "", 
-          phone: "", 
-          industry: "", 
-          projectSize: "", 
-          message: "" 
+        setBusinessFormData({
+          companyName: "",
+          contactPerson: "",
+          email: "",
+          phone: "",
+          industry: "",
+          projectSize: "",
+          message: "",
         });
       } else {
         setSubmitStatus("error");
       }
     } catch (error) {
-      console.error('Submission error:', error);
+      console.error("Submission error:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
-  
+
   const handlePersonalSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -90,67 +90,73 @@ export function ContactPage() {
 
     try {
       const result = await submitToGoogleSheets({
-        type: 'Personal',
-        ...personalFormData
+        type: "Personal",
+        ...personalFormData,
       });
-      
+
       if (result.success) {
         setSubmitStatus("success");
-        setPersonalFormData({ 
-          name: "", 
-          email: "", 
-          phone: "", 
-          message: "" 
+        setPersonalFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
         });
       } else {
         setSubmitStatus("error");
       }
     } catch (error) {
-      console.error('Submission error:', error);
+      console.error("Submission error:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
 
-
   const contactInfo = [
     {
       icon: MapPin,
       title: "Visit Us",
-      details: ["Kamrup, Guwahati", "Assam, India, 781131"]
+      details: ["Kamrup, Guwahati", "Assam, India, 781131"],
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: ["+91 88370 93861"]
+      details: ["+91 88370 93861"],
     },
     {
       icon: Mail,
       title: "Email Us",
-      details: ["info@n88ebuild.com"]
+      details: ["info@n88ebuild.com"],
     },
     {
       icon: Clock,
       title: "Business Hours",
-      details: ["Mon - Fri: 9:00 AM - 6:00 PM", "Sat: 9:00 AM - 2:00 PM"]
-    }
+      details: ["Mon - Fri: 9:00 AM - 6:00 PM", "Sat: 9:00 AM - 2:00 PM"],
+    },
   ];
-
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title="Contact N88E Build | Get Quote for ASA uPVC Roofing"
+        description="Contact N88E Build Pvt. Ltd. for product quotes, technical support, and project guidance for GUTDACH and GUTWALL. Based in Guwahati, Assam. Call +91 88370 93861 or send a business/personal inquiry."
+        keywords="contact N88E Build, roofing quote Assam, GUTDACH quote, ASA uPVC roofing contact, Guwahati roofing company, GUTWALL partitions quote, roofing sheets supplier Northeast India"
+        url="https://n88ebuild.com/contact"
+        image="https://n88ebuild.com/og-image.jpg"
+        type="website"
+      />
+
       {/* Hero Section */}
       <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl mb-6">Contact Us</h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Get in touch with our team for quotes, technical support, or any questions 
+            Get in touch with our team for quotes, technical support, or any questions
             about our ASA uPVC roofing solutions.
           </p>
         </div>
       </section>
-
 
       {/* Contact Info Cards */}
       <section className="py-16">
@@ -165,18 +171,20 @@ export function ContactPage() {
                   <CardTitle className="text-lg">{info.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  {info.details.map((detail, idx) => (
-                    detail && <p key={idx} className="text-gray-600">
-                      {detail}
-                    </p>
-                  ))}
+                  {info.details.map(
+                    (detail, idx) =>
+                      detail && (
+                        <p key={idx} className="text-gray-600">
+                          {detail}
+                        </p>
+                      )
+                  )}
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
       </section>
-
 
       {/* Contact Form and Map */}
       <section className="py-16 bg-white">
@@ -193,7 +201,13 @@ export function ContactPage() {
                 </CardHeader>
                 <CardContent>
                   {submitStatus && (
-                    <Alert className={`mb-6 ${submitStatus === "success" ? "border-green-200 bg-green-50" : "border-red-200 bg-red-50"}`}>
+                    <Alert
+                      className={`mb-6 ${
+                        submitStatus === "success"
+                          ? "border-green-200 bg-green-50"
+                          : "border-red-200 bg-red-50"
+                      }`}
+                    >
                       <div className="flex items-center">
                         {submitStatus === "success" ? (
                           <CheckCircle className="h-4 w-4 text-green-600" />
@@ -201,15 +215,13 @@ export function ContactPage() {
                           <AlertCircle className="h-4 w-4 text-red-600" />
                         )}
                         <AlertDescription className="ml-2">
-                          {submitStatus === "success" 
+                          {submitStatus === "success"
                             ? "Thank you for your message! We'll get back to you soon."
-                            : "There was an error sending your message. Please try again."
-                          }
+                            : "There was an error sending your message. Please try again."}
                         </AlertDescription>
                       </div>
                     </Alert>
                   )}
-
 
                   <Tabs defaultValue="business" className="w-full">
                     <TabsList className="grid w-full grid-cols-2 mb-6">
@@ -222,7 +234,6 @@ export function ContactPage() {
                         Personal Inquiry
                       </TabsTrigger>
                     </TabsList>
-
 
                     {/* Business Form */}
                     <TabsContent value="business">
@@ -254,7 +265,6 @@ export function ContactPage() {
                           </div>
                         </div>
 
-
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="space-y-2">
                             <Label htmlFor="business-email">Email Address *</Label>
@@ -282,13 +292,14 @@ export function ContactPage() {
                           </div>
                         </div>
 
-
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="space-y-2">
                             <Label htmlFor="industry">Industry Type *</Label>
                             <Select
                               value={businessFormData.industry}
-                              onValueChange={(value) => setBusinessFormData(prev => ({ ...prev, industry: value }))}
+                              onValueChange={(value) =>
+                                setBusinessFormData((prev) => ({ ...prev, industry: value }))
+                              }
                             >
                               <SelectTrigger id="industry">
                                 <SelectValue placeholder="Select industry" />
@@ -309,7 +320,9 @@ export function ContactPage() {
                             <Label htmlFor="projectSize">Estimated Project Size *</Label>
                             <Select
                               value={businessFormData.projectSize}
-                              onValueChange={(value) => setBusinessFormData(prev => ({ ...prev, projectSize: value }))}
+                              onValueChange={(value) =>
+                                setBusinessFormData((prev) => ({ ...prev, projectSize: value }))
+                              }
                             >
                               <SelectTrigger id="projectSize">
                                 <SelectValue placeholder="Select size" />
@@ -323,7 +336,7 @@ export function ContactPage() {
                             </Select>
                           </div>
                         </div>
-                        
+
                         <div className="space-y-2">
                           <Label htmlFor="business-message">Project Details *</Label>
                           <Textarea
@@ -336,17 +349,12 @@ export function ContactPage() {
                             rows={6}
                           />
                         </div>
-                        
-                        <Button 
-                          type="submit" 
-                          className="w-full" 
-                          disabled={isSubmitting}
-                        >
+
+                        <Button type="submit" className="w-full" disabled={isSubmitting}>
                           {isSubmitting ? "Sending..." : "Submit Business Inquiry"}
                         </Button>
                       </form>
                     </TabsContent>
-
 
                     {/* Personal Form */}
                     <TabsContent value="personal">
@@ -377,7 +385,7 @@ export function ContactPage() {
                             />
                           </div>
                         </div>
-                        
+
                         <div className="space-y-2">
                           <Label htmlFor="personal-email">Email Address *</Label>
                           <Input
@@ -390,7 +398,7 @@ export function ContactPage() {
                             placeholder="your.email@example.com"
                           />
                         </div>
-                      
+
                         <div className="space-y-2">
                           <Label htmlFor="personal-message">Message *</Label>
                           <Textarea
@@ -403,12 +411,8 @@ export function ContactPage() {
                             rows={6}
                           />
                         </div>
-                        
-                        <Button 
-                          type="submit" 
-                          className="w-full" 
-                          disabled={isSubmitting}
-                        >
+
+                        <Button type="submit" className="w-full" disabled={isSubmitting}>
                           {isSubmitting ? "Sending..." : "Send Message"}
                         </Button>
                       </form>
@@ -417,6 +421,7 @@ export function ContactPage() {
                 </CardContent>
               </Card>
             </div>
+
             {/* Map Section */}
             <div>
               <Card className="h-full">
@@ -429,7 +434,7 @@ export function ContactPage() {
                 <CardContent>
                   <div className="w-full h-64 rounded-lg overflow-hidden mb-6">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114706.69830029927!2d91.64665197910155!3d26.14477479999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5f3b7eded2cf%3A0xc6d0d0d0d0d0d0d0!2sKamrup%20Metropolitan%2C%20Assam%20781131!5e0!3m2!1sen!2sin!4v1733602800000!5m2!1sen!2sin"                 
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114706.69830029927!2d91.64665197910155!3d26.14477479999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5f3b7eded2cf%3A0xc6d0d0d0d0d0d0d0!2sKamrup%20Metropolitan%2C%20Assam%20781131!5e0!3m2!1sen!2sin!4v1733602800000!5m2!1sen!2sin"
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}
@@ -443,11 +448,11 @@ export function ContactPage() {
                     <div>
                       <h4 className="mb-2 font-semibold">Directions</h4>
                       <p className="text-gray-600 text-sm">
-                        Located in Kamrup, Guwahati, Assam, easily accessible 
+                        Located in Kamrup, Guwahati, Assam, easily accessible
                         from the city center via major highways.
                       </p>
                     </div>
-                    
+
                     <div>
                       <h4 className="mb-2 font-semibold">Parking</h4>
                       <p className="text-gray-600 text-sm">
@@ -461,6 +466,7 @@ export function ContactPage() {
           </div>
         </div>
       </section>
+
       {/* CTA Section */}
       <section className="bg-primary text-white py-16">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
@@ -473,7 +479,11 @@ export function ContactPage() {
               <Phone className="mr-2 h-5 w-5" />
               Call Now: +91 88370 93861
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-[rgb(17,43,60)] hover:bg-white hover:text-primary">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-[rgb(17,43,60)] hover:bg-white hover:text-primary"
+            >
               <Mail className="mr-2 h-5 w-5" />
               Email Support
             </Button>

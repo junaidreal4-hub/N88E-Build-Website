@@ -16,10 +16,13 @@ import {
 import { ImageWithFallback } from "../figma/ImageWithFallback";
 import peterLogo from "../../assets/PETER_logo.png";
 
-import { Link, useNavigate } from "react-router-dom"; // navigation [web:50][web:51]
+import { Link, useNavigate } from "react-router-dom"; // navigation
+
+// SEO
+import { SEO } from "../SEO";
 
 export function PeterPage() {
-  const navigate = useNavigate(); // programmatic navigation [web:50]
+  const navigate = useNavigate(); // programmatic navigation
 
   const features = [
     {
@@ -114,6 +117,15 @@ export function PeterPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title="P.E.T.E.R. - Portable Tactical Emergency Roofing | Coming Soon"
+        description="Revolutionary P.E.T.E.R. modular roofing system for military operations and disaster relief. Rapid deployment, eco-friendly recycled materials, tactical camouflage options. Coming soon from N88E Build."
+        keywords="PETER roofing, tactical roofing, military roofing solutions, emergency shelter, disaster relief roofing, modular roofing system, portable roofing"
+        url="https://n88ebuild.com/peter"
+        image="https://n88ebuild.com/og-image.jpg"
+        type="product"
+      />
+
       {/* Breadcrumb */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -223,7 +235,7 @@ export function PeterPage() {
             {features.map((feature, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                  <div className="bg-primary/10 w-16 h--16 rounded-full flex items-center justify-center mb-4">
                     <feature.icon className="h-8 w-8 text-primary" />
                   </div>
                   <CardTitle className="text-lg">

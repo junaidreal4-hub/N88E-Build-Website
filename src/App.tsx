@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import { Navigation } from "./components/Navigation";
 import { Footer } from "./components/Footer";
@@ -11,6 +11,7 @@ import { AboutPage } from "./components/pages/AboutPage";
 import { FounderPage } from "./components/pages/FounderPage";
 import { ContactPage } from "./components/pages/ContactPage";
 import { CertificatePage } from "./components/pages/CertificatePage";
+import { NotFoundPage } from "./components/pages/NotFoundPage";
 
 export default function App() {
   return (
@@ -29,8 +30,8 @@ export default function App() {
           <Route path="/founder" element={<FounderPage />} />
           <Route path="/contact" element={<ContactPage />} />
 
-          {/* fallback */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          {/* 404 */}
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
 

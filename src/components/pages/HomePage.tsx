@@ -46,8 +46,11 @@ import {
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
+// SEO
+import { SEO } from "../SEO";
+
 export function HomePage() {
-  const navigate = useNavigate(); // programmatic navigation [web:50]
+  const navigate = useNavigate(); // programmatic navigation
   const carouselApiRef = useRef<any>(null);
 
   // Auto-play carousel effect
@@ -93,6 +96,15 @@ export function HomePage() {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Climate-Adaptive Roofing for Northeast India"
+        description="N88E Build delivers ASA uPVC galvalume roofing solutions engineered for extreme climates. 30+ year lifespan, rust-proof, 5-7°C cooler, zero maintenance. Founded July 2025 in Guwahati, Assam."
+        keywords="N88E Build,roofing sheets, ASA uPVC roofing, GUTDACH, GUTWALL, roofing Assam, GI sheet alternative, Northeast India construction, climate-adaptive roofing"
+        url="https://n88ebuild.com"
+        image="https://n88ebuild.com/og-image.jpg"
+        type="website"
+      />
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-primary to-secondary text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -492,7 +504,11 @@ export function HomePage() {
           </div>
 
           <div className="text-center">
-            <Button onClick={() => navigate("/contact")} size="lg" className="shadow-lg">
+            <Button
+              onClick={() => navigate("/contact")}
+              size="lg"
+              className="shadow-lg"
+            >
               Contact Us Now
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -508,7 +524,8 @@ export function HomePage() {
           </h2>
 
           <p className="text-xl text-orange-100 mb-8">
-            Join thousands of satisfied customers across India. Get your personalized quote today.
+            Join thousands of satisfied customers across India. Get your
+            personalized quote today.
           </p>
 
           <Button

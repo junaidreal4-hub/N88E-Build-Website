@@ -23,8 +23,11 @@ import gutdachBrochure from "../../assets/GUTDACH_Brochure.pdf";
 import gutwallBrochure from "../../assets/GUTWALL_Brochure.pdf";
 import gutwallImage from "../../assets/GUTWALL_plain_sheet_wall.png";
 
-import { useNavigate, Link } from "react-router-dom"; // Link used for breadcrumb (optional) [web:51]
+import { useNavigate, Link } from "react-router-dom"; // Link used for breadcrumb (optional)
 import type { ComponentType } from "react";
+
+// SEO
+import { SEO } from "../SEO";
 
 interface ProductPageProps {
   productType: "gutdach" | "gutwall";
@@ -43,7 +46,7 @@ type Application = {
 };
 
 export function ProductPage({ productType }: ProductPageProps) {
-  const navigate = useNavigate(); // programmatic navigation [web:50]
+  const navigate = useNavigate(); // programmatic navigation
 
   const productData: Record<
     ProductPageProps["productType"],
@@ -57,6 +60,14 @@ export function ProductPage({ productType }: ProductPageProps) {
       specifications: Spec[];
       benefits: Benefit[];
       applications: Application[];
+      seo: {
+        title: string;
+        description: string;
+        keywords: string;
+        url: string;
+        image?: string;
+        type?: string;
+      };
     }
   > = {
     gutdach: {
@@ -121,9 +132,20 @@ export function ProductPage({ productType }: ProductPageProps) {
         {
           icon: Factory,
           title: "Industrial Facilities",
-          description: "Suitable for factories, workshops, and agricultural buildings",
+          description:
+            "Suitable for factories, workshops, and agricultural buildings",
         },
       ],
+      seo: {
+        title: "GUTDACH - ASA uPVC Roofing Sheets | 30+ Year Lifespan",
+        description:
+          "Premium GUTDACH ASA uPVC roofing sheets for Northeast India. 30+ year lifespan, rust-proof, 5-7°C cooler than GI sheets. Available in flat sheets and tile profiles. Zero maintenance required.",
+        keywords:
+          "GUTDACH, ASA uPVC roofing, roofing sheets Northeast India, rust-proof roofing, GI sheet alternative, roofing tiles Northeast India, industrial roofing",
+        url: "https://n88ebuild.com/gutdach",
+        image: "https://n88ebuild.com/og-image.jpg",
+        type: "product",
+      },
     },
 
     gutwall: {
@@ -179,7 +201,8 @@ export function ProductPage({ productType }: ProductPageProps) {
         {
           icon: Building,
           title: "Office & Commercial",
-          description: "Office partitions, clinics, study rooms, and commercial spaces",
+          description:
+            "Office partitions, clinics, study rooms, and commercial spaces",
         },
         {
           icon: Factory,
@@ -187,6 +210,16 @@ export function ProductPage({ productType }: ProductPageProps) {
           description: "Hostels, modular cabins, and temporary setups",
         },
       ],
+      seo: {
+        title: "GUTWALL - uPVC Interior Partition Sheets | Moisture-Proof",
+        description:
+          "GUTWALL uPVC interior partition sheets for high-humidity regions. Moisture-proof, termite-resistant, zero maintenance. Perfect for homes, offices, and modular construction in Northeast India.",
+        keywords:
+          "GUTWALL, uPVC partition sheets, interior wall panels, moisture-proof partitions, termite resistant sheets, modular walls Assam",
+        url: "https://n88ebuild.com/gutwall",
+        image: "https://n88ebuild.com/og-image.jpg",
+        type: "product",
+      },
     },
   };
 
@@ -194,6 +227,15 @@ export function ProductPage({ productType }: ProductPageProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title={product.seo.title}
+        description={product.seo.description}
+        keywords={product.seo.keywords}
+        url={product.seo.url}
+        image={product.seo.image}
+        type={product.seo.type}
+      />
+
       {/* Breadcrumb */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -233,7 +275,11 @@ export function ProductPage({ productType }: ProductPageProps) {
               </Badge>
 
               <div className="flex items-center mb-4">
-                <img src={product.logo} alt={product.title} className="h-12 w-auto" />
+                <img
+                  src={product.logo}
+                  alt={product.title}
+                  className="h-12 w-auto"
+                />
               </div>
 
               <h2 className="text-2xl text-primary mb-6">{product.subtitle}</h2>
@@ -246,7 +292,10 @@ export function ProductPage({ productType }: ProductPageProps) {
                 </Button>
 
                 <Button size="lg" variant="outline" asChild>
-                  <a href={product.brochure} download={`${product.title}_Brochure.pdf`}>
+                  <a
+                    href={product.brochure}
+                    download={`${product.title}_Brochure.pdf`}
+                  >
                     <Download className="mr-2 h-5 w-5" />
                     Download Brochure
                   </a>
@@ -299,7 +348,8 @@ export function ProductPage({ productType }: ProductPageProps) {
           <div className="text-center mb-12">
             <h2 className="text-3xl mb-4">Key Benefits</h2>
             <p className="text-gray-600 text-lg">
-              Why our {product.title} ({product.subtitle}) is the right choice for your project
+              Why our {product.title} ({product.subtitle}) is the right choice for
+              your project
             </p>
           </div>
 
@@ -350,9 +400,14 @@ export function ProductPage({ productType }: ProductPageProps) {
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl mb-4">Ready to Get Started?</h2>
           <p className="text-xl text-green-100 mb-8">
-            Contact us for a detailed quote and expert consultation for your roofing project.
+            Contact us for a detailed quote and expert consultation for your
+            roofing project.
           </p>
-          <Button size="lg" variant="secondary" onClick={() => navigate("/contact")}>
+          <Button
+            size="lg"
+            variant="secondary"
+            onClick={() => navigate("/contact")}
+          >
             Get Quote Now
           </Button>
         </div>
