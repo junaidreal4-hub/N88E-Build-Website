@@ -12,6 +12,7 @@ import { FounderPage } from "./components/pages/FounderPage";
 import { ContactPage } from "./components/pages/ContactPage";
 import { CertificatePage } from "./components/pages/CertificatePage";
 import { NotFoundPage } from "./components/pages/NotFoundPage";
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App() {
   return (
@@ -36,6 +37,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <Analytics />
     </div>
   );
 }
