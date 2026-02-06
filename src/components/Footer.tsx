@@ -224,7 +224,6 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; 2025 N88E Build Pvt. Ltd. All rights reserved.</p>
-          <p>&copy; Designed and Developed by Hyper</p>
         </div>
       </div>
     </footer>
