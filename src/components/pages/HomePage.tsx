@@ -262,7 +262,7 @@ export function HomePage() {
                   </Card>
                 </CarouselItem>
 
-                {/* P.E.T.E.R. */}
+                {/* P.E.T.E.R.
                 <CarouselItem>
                   <Card className="border-2 border-primary/20">
                     <CardContent className="p-8">
@@ -308,7 +308,7 @@ export function HomePage() {
                     </CardContent>
                   </Card>
                 </CarouselItem>
-              </CarouselContent>
+              </CarouselContent> */}
 
               <CarouselPrevious />
               <CarouselNext />

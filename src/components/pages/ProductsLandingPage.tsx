@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 import gutdachLogo from "../../assets/GUTDACH_logo.png";
 import gutwallLogo from "../../assets/GUTWALL_logo.png";
-import peterLogo from "../../assets/PETER_logo.png";
+// import peterLogo from "../../assets/PETER_logo.png";
 
 import { useNavigate } from "react-router-dom";
 
@@ -30,13 +30,13 @@ export function ProductsLandingPage() {
       badge: "Available Now",
       logo: gutwallLogo,
     },
-    {
-      id: "peter",
-      name: "P.E.T.E.R.",
-      tagline: "Portable Expeditionary Tactical Emergency Roofing",
-      badge: "Coming Soon",
-      logo: peterLogo,
-    },
+    // {
+    //   id: "peter",
+    //   name: "P.E.T.E.R.",
+    //   tagline: "Portable Expeditionary Tactical Emergency Roofing",
+    //   badge: "Coming Soon",
+    //   logo: peterLogo,
+    // },
   ] as const;
 
   const handleNavigateProduct = (productId: string) => {
