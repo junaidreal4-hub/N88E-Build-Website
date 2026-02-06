@@ -97,14 +97,14 @@ export function Footer() {
                 </Link>
               </li>
 
-              <li>
+              {/* <li>
                 <Link
                   to="/peter"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   P.E.T.E.R. (Coming Soon)
                 </Link>
-              </li>
+              </li> */}
 
               <li>
                 <Link
@@ -174,7 +174,7 @@ export function Footer() {
                 </Link>
               </li>
 
-              <li>
+              {/* <li>
                 <Link
                   to="/peter"
                   className="text-gray-400 hover:text-white transition-colors block"
@@ -183,7 +183,7 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Contact Info */}
           <div>

@@ -6,7 +6,7 @@ import { Footer } from "./components/Footer";
 import { HomePage } from "./components/pages/HomePage";
 import { ProductPage } from "./components/pages/ProductPage";
 import { ProductsLandingPage } from "./components/pages/ProductsLandingPage";
-import { PeterPage } from "./components/pages/PeterPage";
+//import { PeterPage } from "./components/pages/PeterPage";
 import { AboutPage } from "./components/pages/AboutPage";
 import { FounderPage } from "./components/pages/FounderPage";
 import { ContactPage } from "./components/pages/ContactPage";
@@ -25,7 +25,7 @@ export default function App() {
           <Route path="/products" element={<ProductsLandingPage />} />
           <Route path="/gutdach" element={<ProductPage productType="gutdach" />} />
           <Route path="/gutwall" element={<ProductPage productType="gutwall" />} />
-          <Route path="/peter" element={<PeterPage />} />
+          {/*<Route path="/peter" element={<PeterPage />} />*/}
           <Route path="/certificates" element={<CertificatePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/founder" element={<FounderPage />} />
