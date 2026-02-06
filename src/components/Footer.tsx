@@ -182,8 +182,9 @@ export function Footer() {
                   P.E.T.E.R. - Military Solution (Coming Soon)
                 </Link>
               </li>
+                */}
             </ul>
-          </div> */}
+          </div> 
 
           {/* Contact Info */}
           <div>
