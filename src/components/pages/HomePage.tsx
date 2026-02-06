@@ -524,5 +524,6 @@ export function HomePage() {
           </Button>
         </div>
       </section>
+     </div> 
   );
 }
