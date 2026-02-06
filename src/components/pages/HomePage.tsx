@@ -309,8 +309,7 @@ export function HomePage() {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
-        </div>
-      </section>
+       </section>
 
       {/* Why Choose Us Section */}
       <section className="py-16">
@@ -523,6 +522,5 @@ export function HomePage() {
           </Button>
         </div>
       </section>
-    </div>
   );
 }
