@@ -262,40 +262,24 @@ export function HomePage() {
                   </Card>
                 </CarouselItem>
 
-                {/* P.E.T.E.R. */}
-                {/*
-                 <CarouselItem>
-                  <Card className="border-2 border-primary/20">
-                    <CardContent className="p-8">
-                      <div className="text-center">
-                        <div className="relative mb-6 overflow-hidden rounded-lg">
-                          <ImageWithFallback
-                            src={peterImage}
-                            alt="P.E.T.E.R."
-                            className="w-full h-80 object-cover rounded-lg"
-                          />
-                          <Badge className="absolute top-4 right-4 bg-yellow-500">
-                            Coming Soon
-                          </Badge>
-                        </div>
-
-                        <div className="flex items-center justify-center mb-4">
-                          <img
-                            src={peterLogo}
-                            alt="P.E.T.E.R."
-                            className="h-12 w-auto"
-                          />
-                        </div>
-
-                        <h3 className="text-2xl mb-4 text-primary">
-                          Military & Emergency Roofing
-                        </h3>
-                        <p className="text-gray-600 mb-6 max-w-md mx-auto">
-                          Rapid deployment modular roofing system for military
-                          operations and disaster relief. Revolutionary design
-                          coming soon.
-                        </p>
-
+                {/* 
+                <CarouselItem className="md:basis-1/3 lg:basis-1/3">
+                  <Card className="shadow-lg h-full">
+                    <CardContent className="p-6">
+                      <Badge variant="secondary" className="mb-4">Coming Soon</Badge>
+                      <div className="relative h-48 mb-4">
+                        <ImageWithFallback
+                          src={peterImage}
+                          alt="P.E.T.E.R."
+                          className="w-full h-full object-cover rounded"
+                        />
+                      </div>
+                      <div className="text-center space-y-2">
+                        <h3 className="text-2xl font-bold">P.E.T.E.R.</h3>
+                        <CardTitle className="text-lg">Military & Emergency Roofing</CardTitle>
+                        <CardDescription>
+                          Rapid deployment modular roofing system for military operations and disaster relief. Revolutionary design coming soon.
+                        </CardDescription>
                         <Button
                           onClick={() => navigate("/peter")}
                           size="lg"
@@ -303,15 +287,13 @@ export function HomePage() {
                           className="w-full max-w-xs mx-auto"
                         >
                           Learn More
-                          <ArrowRight className="ml-2 h-5 w-5" />
+                          <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                       </div>
                     </CardContent>
                   </Card>
                 </CarouselItem>
-              </CarouselContent>
-               */}
-
+                */}
               <CarouselPrevious />
               <CarouselNext />
             </Carousel>
