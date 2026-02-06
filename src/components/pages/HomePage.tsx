@@ -28,12 +28,12 @@ import { RoofingMaterialsRadarChart } from "../RadarChart";
 
 import gutdachLogo from "../../assets/GUTDACH_logo.png";
 import gutwallLogo from "../../assets/GUTWALL_logo.png";
-import peterLogo from "../../assets/PETER_logo.png";
+// import peterLogo from "../../assets/PETER_logo.png";
 
 import heroRoofImage from "../../assets/Building_GUTDACH.png";
 import gutwallslideImage from "../../assets/GUTWALL_plainsheet_catalog.png";
 import gutdach01Image from "../../assets/GUTDACH_roofing_tile_grey_roof.png";
-import peterImage from "../../assets/PETER.png";
+// import peterImage from "../../assets/PETER.png";
 
 import {
   Carousel,
