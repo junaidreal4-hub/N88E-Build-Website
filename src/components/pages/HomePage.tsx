@@ -294,7 +294,8 @@ export function HomePage() {
                   </Card>
                 </CarouselItem>
                 */}
-              <CarouselPrevious />
+               </CarouselContent>
+               <CarouselPrevious />
               <CarouselNext />
             </Carousel>
           </div>
