@@ -310,7 +310,8 @@ export function HomePage() {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
-       </section>
+        </div>
+      </section>
 
       {/* Why Choose Us Section */}
       <section className="py-16">
